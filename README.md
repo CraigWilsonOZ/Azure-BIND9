@@ -1,4 +1,4 @@
-# BIND9 Configuration
+# DNS Forwarder for Azure using Ubtuntu BIND9 - Install and Configuration scripts
 
 Azure Private Endpoint require DNS for name resolution. Microsoft has two options to provide DNS resolution for this requirement, the first is Azure DNS Resolver and the second is using a DNS forwarder on a container or virtual machine.
 
