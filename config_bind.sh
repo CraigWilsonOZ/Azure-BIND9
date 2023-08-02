@@ -1,7 +1,7 @@
 #!/bin/sh
 #set -eu -o pipefail # fail on error and report it, debug all lines
 
-echo "BIND9 install and configuration (Tested on Ubuntu 20.04 LTS)"
+echo "BIND9 install and configuration (Tested on Ubuntu 20.04/22.04 LTS)"
 echo "Checking for sudo access."
 sudo -n true
 test $? -eq 0 || exit 1 "you should have sudo privilege to run this script"
@@ -25,7 +25,7 @@ ALLOWEDNETWORK="any;" # Any IP Address
 FORWARDER1="8.8.8.8" # Google DNS Server
 FORWARDER2="1.1.1.1" # Cloudflare DNS Server
 FORWARDER3="168.63.129.16" # Azure DNS Server
-       
+
 echo "[+] Creating BIND9 Configuration"
 echo " - Creating backup of bind conf"
 sudo cp /etc/bind/named.conf /etc/bind/named.conf.bak
@@ -282,8 +282,8 @@ logging {
 // messages will be useful to research why some domains don't resolve or
 // don't resolve reliably
 //
-     category resolver { auth_servers_log; default_debug; };       
-     category cname { auth_servers_log; default_debug; };       
+     category resolver { auth_servers_log; default_debug; };
+     category cname { auth_servers_log; default_debug; };
      category delegation-only { auth_servers_log; default_debug; };
      category lame-servers { auth_servers_log; default_debug; };
      category edns-disabled { auth_servers_log; default_debug; };
@@ -294,8 +294,8 @@ logging {
 //
 // Log together all messages relating to authoritative zone propagation
 //
-     category notify { zone_transfers_log; default_debug; };       
-     category xfer-in { zone_transfers_log; default_debug; };       
+     category notify { zone_transfers_log; default_debug; };
+     category xfer-in { zone_transfers_log; default_debug; };
      category xfer-out { zone_transfers_log; default_debug; };
 //
 // Log together all messages relating to dynamic updates to DNS zone data:
@@ -308,7 +308,7 @@ logging {
 // null but which can be added here if you want more than the one-line
 // summary that is logged for failures to match a view).
 //
-     category client{ client_security_log; default_debug; };       
+     category client{ client_security_log; default_debug; };
      category security { client_security_log; default_debug; };
 //
 // Log together all messages that are likely to be related to rate-limiting.
@@ -319,8 +319,8 @@ logging {
 // emitted by the database category that don't relate to rate-limiting
 // behaviour by named.
 //
-     category rate-limit { rate_limiting_log; default_debug; };       
-     category spill { rate_limiting_log; default_debug; };       
+     category rate-limit { rate_limiting_log; default_debug; };
+     category spill { rate_limiting_log; default_debug; };
      category database { rate_limiting_log; default_debug; };
 //
 // Log DNS-RPZ (Response Policy Zone) messages (if you are not using DNS-RPZ
@@ -337,7 +337,7 @@ logging {
 // If you are running a server (for example one of the Internet root
 // nameservers) that is providing RFC 5011 trust anchor updates, then you
 // may be interested in logging trust anchor telemetry reports that your
-// server receives to analyze anchor propagation rates during a key rollover. 
+// server receives to analyze anchor propagation rates during a key rollover.
 // If this would be useful then firstly, configure the new channel, and then
 // un-comment and the line below to direct the category there instead of to
 // syslog and default log:
