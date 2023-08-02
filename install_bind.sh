@@ -2,7 +2,7 @@
 #set -eu -o pipefail # fail on error and report it, debug all lines
 
 # Introduction and checking sudo privilege
-echo "BIND9 install and configuration (Tested on Ubuntu 20.04 LTS)"
+echo "BIND9 install and configuration (Tested on Ubuntu 20.04/22.04 LTS)"
 echo "Checking for sudo access."
 sudo -n true
 test $? -eq 0 || exit 1 "you should have sudo privilege to run this script"
